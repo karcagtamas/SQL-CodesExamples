@@ -1,0 +1,10 @@
+﻿USE `13a_filmszineszek`;
+
+CREATE PROCEDURE N2 (INOUT a int)
+BEGIN
+  SET a = a * a;
+END;
+
+CALL N2(10);
+
+SHOW FUNCTION STATUS;
