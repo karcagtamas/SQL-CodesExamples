@@ -23,7 +23,7 @@ CREATE PROCEDURE uploadTable(IN darab int)
       SET v_nev = CONCAT('TesztNév_',i);
       SET v_pw = CONCAT('TesztPw_',i);
       SET v_email = CONCAT('t_',i, '@teszt.hu');
-      SET v_kor = i;
+      SET v_kor = FLOOR(18 + RAND() * 42);
       INSERT INTO users(Nev, Pwd, Email, Age)
         VALUES (v_nev, v_pw, v_email, v_kor);
       SET i = i + 1;
