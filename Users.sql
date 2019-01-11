@@ -2,6 +2,8 @@
 CHARACTER SET utf8
   COLLATE utf8_hungarian_ci;
 
+USE facebook;
+
 CREATE TABLE kommentek(
   id int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   felhasznlaloId int(11) UNSIGNED NOT NULL,

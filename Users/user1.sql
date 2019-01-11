@@ -1,0 +1,3 @@
+﻿SELECT USER();
+
+USE facebook;
