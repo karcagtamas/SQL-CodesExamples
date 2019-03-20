@@ -1,0 +1,19 @@
+﻿SELECT @@GLOBAL.tx_isolation, @@tx_isolation;
+USE test;
+
+DROP TABLE IF EXISTS teszt;
+CREATE TABLE teszt (
+  az int(11) PRIMARY KEY AUTO_INCREMENT,
+  mezo1 int(11) UNSIGNED,
+  mezo2 int(11) UNSIGNED,
+  mezo3 int(11) UNSIGNED);
+
+INSERT INTO teszt(mezo1, mezo2, mezo3) VALUES(2,1,4);
+
+CREATE USER 'user1'@'localhost';
+SET PASSWORD FOR 'user1'@'localhost' = PASSWORD ('123456');
+GRANT SELECT, INSERT, UPDATE, DELETE, ALTER, CREATE, CREATE VIEW, DROP, GRANT OPTION, INDEX, REFERENCES, SHOW VIEW, TRIGGER ON TABLE test.teszt TO 'user1'@'localhost';
+
+CREATE USER 'user2'@'localhost';
+SET PASSWORD FOR 'user2'@'localhost' = PASSWORD ('123456');
+GRANT SELECT, INSERT, UPDATE, DELETE, ALTER, CREATE, CREATE VIEW, DROP, GRANT OPTION, INDEX, REFERENCES, SHOW VIEW, TRIGGER ON TABLE test.teszt TO 'user2'@'localhost';
